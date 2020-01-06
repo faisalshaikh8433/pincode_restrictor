@@ -8,10 +8,10 @@ module ShopifyApp
     def callback
       if auth_hash
         login_shop
-        add_files
         install_webhooks
         install_scripttags
         perform_after_authenticate_job
+        add_files
 
         redirect_to return_address
       else
