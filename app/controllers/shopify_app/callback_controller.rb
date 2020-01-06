@@ -28,7 +28,7 @@ module ShopifyApp
     end
 
     def add_files
-      file = File.join(Rails.root, 'restricter.liquid')
+      file = "https://shopify-pincode-restricter.herokuapp.com/restricter"
       asset = ShopifyAPI::Asset.new
       asset.key = "snippets/restricter.liquid"
       asset.src = file

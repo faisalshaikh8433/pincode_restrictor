@@ -10,4 +10,9 @@ class HomeController < AuthenticatedController
     pincodes = ['400008', '400095']
     render json: {pincodes: pincodes}, status: :ok
   end
+
+  def restricter
+    render file: File.join(Rails.root, 'restricter.liquid')
+  end
+
 end
