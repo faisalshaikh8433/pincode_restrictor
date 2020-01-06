@@ -1,0 +1,30 @@
+<script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous">
+</script>
+<div style="margin-top: 1rem;">
+  <strong style="color: lightcoral; padding: 2px;">
+    Please enter the pincode to verify we deliver in your area or not !
+  </strong>
+</div>
+<div style="margin-top: 1rem;">
+  <input type="text" id="pincode" placeholder="pincode" autofocus />
+  <input type="button" class="btn" value="Verify" id="verify_pincode" />
+</div>
+<script>
+  document.getElementById('verify_pincode').addEventListener("click",function(){
+    var xhr = new XMLHttpRequest();
+    var pincode = document.getElementById('pincode').value;
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4  && this.status == 200){
+            alert(xhr.response);
+        }else{
+          console.log(xhr.response);
+        }
+    };
+    xhr.open('GET', 'https://shopify-pincode-restricter.herokuapp.com/pincodes', JSON.stringify({data: pincode}));
+    xhr.send();
+    // document.getElementById('checkout_button').removeAttribute("disabled");
+  });
+</script>

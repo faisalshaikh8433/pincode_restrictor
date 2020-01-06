@@ -5,4 +5,9 @@ class HomeController < AuthenticatedController
     @products = ShopifyAPI::Product.find(:all, params: { limit: 10 })
     @webhooks = ShopifyAPI::Webhook.find(:all)
   end
+
+  def pincodes
+    pincodes = ['400008', '400095']
+    render json: {pincodes: pincodes}, status: :ok
+  end
 end
