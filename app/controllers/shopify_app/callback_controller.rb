@@ -11,7 +11,6 @@ module ShopifyApp
         install_webhooks
         install_scripttags
         perform_after_authenticate_job
-        add_files
 
         redirect_to return_address
       else
@@ -25,14 +24,6 @@ module ShopifyApp
     def login_shop
       reset_session_options
       set_shopify_session
-    end
-
-    def add_files
-      file = "https://shopify-pincode-restricter.herokuapp.com/restricter"
-      asset = ShopifyAPI::Asset.new
-      asset.key = "snippets/restricter.liquid"
-      asset.src = file
-      asset.save
     end
 
     def auth_hash

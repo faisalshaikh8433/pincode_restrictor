@@ -11,8 +11,4 @@ class HomeController < AuthenticatedController
     render json: {pincodes: pincodes}, status: :ok
   end
 
-  def restricter
-    render file: File.join(Rails.root, 'restricter.liquid')
-  end
-
 end
