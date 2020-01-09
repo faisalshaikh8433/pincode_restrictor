@@ -10,7 +10,7 @@ ShopifyApp.configure do |config|
   config.api_version = "2020-01"
   config.session_repository = Shop
   config.scripttags = [
-    {event:'onload', src: 'https://30ae27b8.ngrok.io/restricter.js'},
+    {event:'onload', src: 'https://shopify-pincode-restricter.herokuapp.com/restricter.js'},
   ]
 end
 
